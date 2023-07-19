@@ -37,7 +37,10 @@ function checkRequired(inputs) {
 // function check password match
 
 function checkPasswordMatch(input, password2) {
-  if (input.value !== password2.value) {
+  if (input.value.length === 0 && password2.value.length === 0) {
+    showError(input, "Password is required");
+    showError(password2, "Password is required");
+  } else if (input.value !== password2.value) {
     // showError(input, "Passwords do not match");
     showError(password2, "Passwords do not match");
   } else {
